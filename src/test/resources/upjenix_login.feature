@@ -1,11 +1,11 @@
-Feature: login function
-
-  Background: user is on the login page
+Feature: Login function
 
   User story:
   As a user, I should be able to log in so that I can land on homepage.
-
   AC1:Users can log in with valid credentials
+
+  Background:
+  Given  user is on the login page
 
   @UPG10-237 @login
   Scenario Outline: Verifying login functionality with first valid credentials
