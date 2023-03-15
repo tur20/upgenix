@@ -9,8 +9,8 @@ Feature: Login function
 
   @UPG10-237 @login
   Scenario Outline: Verifying login functionality with first valid credentials
-    When user enters valid <username>
-    And user enters valid <password>
+    When user enters valid username <username>
+    And user enters valid password <password>
     And user clicks login button
     Then user is on the home page
     Examples:
@@ -22,8 +22,8 @@ Feature: Login function
       | posmanager78@info.com  | posmanager |
 
   Scenario Outline: Verifying login functionality with second valid credentials
-    When user enters valid <username>
-    And user enters valid <password>
+    When user enters valid username <username>
+    And user enters valid password <password>
     And user clicks login button
     Then user is on the home page
     Examples:
@@ -35,8 +35,8 @@ Feature: Login function
       | salesmanager86@info.com  | salesmanager |
 
   Scenario Outline: Verifying login functionality with invalid username
-    When user enters invalid <username>
-    And user enters valid <password>
+    When user enters invalid username <username>
+    And user enters valid password <password>
     And user clicks login button
     Then user see "Wrong login/password" message
     Examples:
@@ -47,8 +47,8 @@ Feature: Login function
       | fdxnjk@info.com          | posmanager   |
 
   Scenario Outline: Verifying login functionality with invalid password
-    When user enters valid <username>
-    And user enters invalid <password>
+    When user enters valid username <username>
+    And user enters invalid password <password>
     And user clicks login button
     Then user should see "Wrong login/password" message
     Examples:

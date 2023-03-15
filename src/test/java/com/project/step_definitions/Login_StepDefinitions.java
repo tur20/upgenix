@@ -10,8 +10,12 @@ public class Login_StepDefinitions {
     public void userIsOnTheLoginPage() {
     }
 
-    @When("user enters valid <username>")
-    public void userEntersValidUsername() {
+    @When("user enters valid username <username>")
+    public void userEntersValidUsernameUsername() {
+    }
+
+    @And("user enters valid password <password>")
+    public void userEntersValidPasswordPassword() {
     }
 
     @And("user clicks login button")
@@ -22,12 +26,16 @@ public class Login_StepDefinitions {
     public void userIsOnTheHomePage() {
     }
 
-    @When("user enters invalid <username>")
-    public void userEntersInvalidUsername() {
+    @When("user enters invalid username <username>")
+    public void userEntersInvalidUsernameUsername() {
     }
 
     @Then("user see {string} message")
     public void userSeeMessage(String arg0) {
+    }
+
+    @And("user enters invalid password <password>")
+    public void userEntersInvalidPasswordPassword() {
     }
 
     @Then("user should see {string} message")
