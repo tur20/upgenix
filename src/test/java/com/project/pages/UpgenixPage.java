@@ -20,6 +20,18 @@ public class UpgenixPage {
     @FindBy (xpath = "//button[@type='submit']")
     public WebElement loginButton;
 
+    @FindBy (className = "alert")
+    public WebElement wrongInputMessage;
+
+    @FindBy(className = "oe_topbar_name")
+    public WebElement loggedInUserName;
+
+    @FindBy(linkText = "Log out")
+    public WebElement logOutButton;
+
+    @FindBy(className = "o_dialog_warning")
+    public WebElement sessionExpiredMessage;
+
 
 
 
