@@ -9,10 +9,10 @@ Feature: Login function
 
   @UPG10-237 @login
   Scenario Outline: Verifying login functionality with first valid credentials
-    When user enters valid username <username>
-    And user enters valid password <password>
+    When user enters valid username "<username>"
+    And user enters valid password "<password>"
     And user clicks login button
-    Then user is on the home page
+    Then user is on the inbox page
     Examples:
       | username               | password   |
       | posmanager105@info.com | posmanager |
@@ -22,10 +22,10 @@ Feature: Login function
       | posmanager78@info.com  | posmanager |
 
   Scenario Outline: Verifying login functionality with second valid credentials
-    When user enters valid username <username>
-    And user enters valid password <password>
+    When user enters valid username "<username>"
+    And user enters valid password "<password>"
     And user clicks login button
-    Then user is on the home page
+    Then user is on the inbox page
     Examples:
       | username                 | password     |
       | salesmanager53@info.com  | salesmanager |
@@ -35,10 +35,10 @@ Feature: Login function
       | salesmanager86@info.com  | salesmanager |
 
   Scenario Outline: Verifying login functionality with invalid username
-    When user enters invalid username <username>
-    And user enters valid password <password>
+    When user enters invalid username "<username>"
+    And user enters valid password "<password>"
     And user clicks login button
-    Then user see "Wrong login/password" message
+    Then user should see "Wrong login/password" message
     Examples:
       | username                 | password     |
       | posmanager163@info.com   | posmanager   |
@@ -47,8 +47,8 @@ Feature: Login function
       | fdxnjk@info.com          | posmanager   |
 
   Scenario Outline: Verifying login functionality with invalid password
-    When user enters valid username <username>
-    And user enters invalid password <password>
+    When user enters valid username "<username>"
+    And user enters invalid password "<password>"
     And user clicks login button
     Then user should see "Wrong login/password" message
     Examples:
@@ -70,9 +70,9 @@ Feature: Login function
 
     Scenario: Verifying password is in bullet signs
       When user enters password "posmanager"
-      Then user shoud see the password in bullet signs by default
+      Then user should see the password in bullet signs by default
 
       Scenario: Verifying ‘Enter’ key of the keyboard is working correctly
         When user enter valid credentials(username: "posmanager152@info.com", password: "posmanager")
         And user clicks Enter button on the keyboard
-        Then user is on the home page
+        Then user is on the inbox page
