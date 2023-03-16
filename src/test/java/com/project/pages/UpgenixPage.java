@@ -32,7 +32,11 @@ public class UpgenixPage {
     @FindBy(className = "o_dialog_warning")
     public WebElement sessionExpiredMessage;
 
+    @FindBy(xpath = "//b[.='Sign in']")
+    public WebElement signinBtn;
 
+    @FindBy(xpath = "//span[.='POSManager105']")
+    public WebElement POSManager105;
 
 
 }

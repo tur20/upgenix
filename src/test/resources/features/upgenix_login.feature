@@ -1,14 +1,16 @@
+@login
 Feature: Login function
 
   User story:
   As a user, I should be able to log in so that I can land on homepage.
   AC1:Users can log in with valid credentials
 
-  Background:
-  Given  user is on the login page
 
-  @UPG10-237 @login
-  Scenario Outline: Verifying login functionality with first valid credentials
+  Background:
+    Given  user is on the login page
+
+
+  Scenario Template: Verifying login functionality with first valid credentials
     When user enters valid username "<username>"
     And user enters valid password "<password>"
     And user clicks login button
@@ -21,7 +23,7 @@ Feature: Login function
       | posmanager65@info.com  | posmanager |
       | posmanager78@info.com  | posmanager |
 
-  Scenario Outline: Verifying login functionality with second valid credentials
+  Scenario Template: Verifying login functionality with second valid credentials
     When user enters valid username "<username>"
     And user enters valid password "<password>"
     And user clicks login button
@@ -34,7 +36,7 @@ Feature: Login function
       | salesmanager12@info.com  | salesmanager |
       | salesmanager86@info.com  | salesmanager |
 
-  Scenario Outline: Verifying login functionality with invalid username
+  Scenario Template: Verifying login functionality with invalid username
     When user enters invalid username "<username>"
     And user enters valid password "<password>"
     And user clicks login button
@@ -46,7 +48,7 @@ Feature: Login function
       | wrongusername@info.com   | salesmanager |
       | fdxnjk@info.com          | posmanager   |
 
-  Scenario Outline: Verifying login functionality with invalid password
+  Scenario Template: Verifying login functionality with invalid password
     When user enters valid username "<username>"
     And user enters invalid password "<password>"
     And user clicks login button
@@ -58,21 +60,23 @@ Feature: Login function
       | salesmanager15@info.com | fsdh         |
       | posmanager1@info.com    | 1234         |
 
-    Scenario: Verifying login functionality with empty password
+  @wip
+  Scenario: Verifying login functionality with empty password
     When user enter username: "posmanager22@info.com" and doesn't enter password
     And user clicks login button
-    Then user should see "Please fill out this field" warning message
+    Then user should see "Please fill out this field." warning message near password
+
 
   Scenario: Verifying login functionality with empty username
-      When User doesn't enter username and enter password: "posmanager"
-      And user clicks login button
-      Then user should see "Please fill out this field" warning message
+    When User doesn't enter username and enter password: "posmanager"
+    And user clicks login button
+    Then user should see "Please fill out this field." warning message near username
 
-    Scenario: Verifying password is in bullet signs
-      When user enters password "posmanager"
-      Then user should see the password in bullet signs by default
+  Scenario: Verifying password is in bullet signs
+    When user enters valid password "posmanager"
+    Then user should see the password in bullet signs by default
 
-      Scenario: Verifying ‘Enter’ key of the keyboard is working correctly
-        When user enter valid credentials(username: "posmanager152@info.com", password: "posmanager")
-        And user clicks Enter button on the keyboard
-        Then user is on the inbox page
+  Scenario: Verifying ‘Enter’ key of the keyboard is working correctly
+    When user enter valid credentials(username: "posmanager152@info.com", password: "posmanager")
+    And user clicks Enter button on the keyboard
+    Then user is on the inbox page

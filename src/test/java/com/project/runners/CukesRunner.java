@@ -13,9 +13,9 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber.json"
         },
         features = "src/test/resources/features",
-        glue = "com/task/step_definitions",
+        glue = "com/project/step_definitions",
         dryRun = false,
-        tags = ""
+        tags = "@login"
 )
 public class CukesRunner {
 }
