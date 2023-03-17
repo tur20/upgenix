@@ -1,2 +1,2 @@
 # upgenix
-##login and logot functionality
+login and logot functionality
